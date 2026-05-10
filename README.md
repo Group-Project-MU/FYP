@@ -40,7 +40,7 @@ Install libraries using the project’s `requirements.txt` or execute the follow
 ```bash
 pip install -r 'requirements.txt'
 ```
-If you are not sure you have installed the pip or not, you may execute the below command:
+If you are not sure you have installed the pip or not, you may execute the below command which automatically check and install.
 ```bash
 python library_installer.py
 ```
