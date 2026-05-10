@@ -1,9 +1,9 @@
-#🖧Advanced Nmap Scanner [Link](https://github.com/Group-Project-MU/FYP)
+# 🖧Advanced Nmap Scanner [Link](https://github.com/Group-Project-MU/FYP)
 
-##📜Introduction
+## 📜Introduction
 Advanced Nmap Scanner is a beginner-friendly desktop GUI built with **PyQt6** on top of **Nmap**. It helps users run common network scans with **One click functions**, understand results through structured views (tabs/tree/table/graphs), and explore vulnerability information via **Vulners** and optional **AI-generated** remediation guidance. **Onboarding tour** helps users quickly get started using the application.
 
-##🎯Key features
+## 🎯Key features
 -🧭**Onboarding guide**: built-in guided tour to help first-time users learn the UI.
 - 👉**One click functions**
   - ⚡**Quick Scan**: fast overview for common ports and services.
@@ -21,13 +21,13 @@ Advanced Nmap Scanner is a beginner-friendly desktop GUI built with **PyQt6** on
 - 📈**Vulnerability dashboard**
   - Latest CVEs and selected security alerts (via Vulners and external sources).
 
-##📦Installation & requirements
+## 📦Installation & requirements
 - **Python 3.8+**
 - **Nmap**
   - Windows: download from [Nmap](https://nmap.org/download.html)
   - You will need the path to `nmap.exe` (example: `C:\Program Files (x86)\Nmap\nmap.exe`)
 
-###🗂️Python libraries
+### 🗂️Python libraries
 - PyQt6
 - python-nmap
 - requests
@@ -53,7 +53,7 @@ You may also check your installed libraries through
 pip list
 ```
 
-###🗝️API Key
+### 🗝️API Key
 As the application required API keys to access several services, you should register your own API key.
 - **Vulners**: go to [Vulners](https://vulners.com/) and register a new account. Then go to *Settings*->*API keys*->*Create new API-key*
 - **OpenRouter**: go to [OpenRouter](https://openrouter.ai/) and register a new account. 
@@ -70,16 +70,16 @@ Common configuration items:
 - **OpenRouter API key**: optional, used to generate “Vulnerability Solutions” explanations.
 
 ## How to use (scan types)
-###⚡Quick Scan
+### ⚡Quick Scan
 Designed for a fast overview.
 - **Text Output tab**: quick summary + terminal-like output.
 - **Tree View tab**: host/protocol/port hierarchy.
 
-###🔎Comprehensive Scan
+### 🔎Comprehensive Scan
 Broader scan and richer host detail (may take several minutes).
 - Includes a **Detailed Result** area showing per-host information such as addresses, vendor, uptime, OS match visualization, and port table entries.
 
-###👾Vulnerability Scan
+### 👾Vulnerability Scan
 Time-consuming; recommended to scan one device at a time.
 - **Vulnerability Result**: raw NSE output grouped by host/port.
 - **Vulnerability Solutions**: optional AI-generated sections ordered as:
@@ -89,10 +89,10 @@ Time-consuming; recommended to scan one device at a time.
   - Prevention
   - Action Plan
 
-###✍️Custom Scan
+### ✍️Custom Scan
 Run custom Nmap arguments/scripts (for advanced users).
 
-##📝Types of log messages
+## 📝Types of log messages
 The program writes logs to `scanner_log.log` in the application folder. Typical log entries include:
 - **Startup/config errors**
   - failure to load `config.json`
@@ -111,7 +111,7 @@ The program writes logs to `scanner_log.log` in the application folder. Typical 
 
 If something looks “stuck” in the UI, check `scanner_log.log` first.
 
-##❓FAQs
+## ❓FAQs
 ### Do I need to know Nmap commands?
 No. Quick/Comprehensive/Vulnerability scans work without memorizing flags. Custom Scan is optional.
 
@@ -127,12 +127,12 @@ It runs NSE scripts and may query external data sources; scanning many hosts or 
 ### Where are scan records stored?
 Scan history is stored under `History/` as JSON. Removing files in that folder removes records from history.
 
-##🛠️Troubleshooting
+## 🛠️Troubleshooting
 - **“Invalid path” / scan won’t start**: reselect your `nmap.exe` path in Settings.
 - **Dashboard empty / Vulners errors**: your API key may be missing or out of credits.
 - **AI solution tabs not showing**: verify OpenRouter key, network connectivity, and check `scanner_log.log`.
 - **Long scans**: comprehensive/vulnerability scans can legitimately take minutes depending on network conditions.
 
-##⚠️Safety & disclaimer⚠️
+## ⚠️Safety & disclaimer⚠️
 Use this tool only on networks and hosts you own or have explicit permission to test. AI-generated remediation output is for reference only and should be validated by a qualified professional.
 
