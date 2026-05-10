@@ -122,7 +122,7 @@ Not necessarily. Open ports are normal for many systems/services, but every open
 No. “Risk level” in this app is a heuristic (often related to encryption/exposure assumptions). Secure configuration, patching, authentication, and network segmentation still matter.
 
 ### Why is Vulnerability Scan slow?
-It runs NSE scripts and may query external data sources; scanning many hosts or large port ranges can take a long time.
+It runs NSE scripts and may query external data sources, scanning many hosts or large port ranges can take a long time.
 
 ### Where are scan records stored?
 Scan history is stored under `History/` as JSON. Removing files in that folder removes records from history.
