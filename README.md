@@ -1,4 +1,4 @@
-# Advanced Nmap Scanner (PyQt6 GUI)
+# Advanced Nmap Scanner [Link](https://github.com/Group-Project-MU/FYP)
 
 ## Introduction
 Advanced Nmap Scanner is a beginner-friendly desktop GUI built with **PyQt6** on top of **Nmap**. It helps users run common network scans with **One click functions**, understand results through structured views (tabs/tree/table/graphs), and explore vulnerability information via **Vulners** and optional **AI-generated** remediation guidance.
