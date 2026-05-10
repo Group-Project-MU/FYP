@@ -36,7 +36,7 @@ Advanced Nmap Scanner is a beginner-friendly desktop GUI built with **PyQt6** on
 - vulners
 - Openai-compatible client usage for AI remediation output
 
-Install libraries using the project’s `requirements.txt` or execute the following command:
+Install libraries using the project’s `requirements.txt` and execute the following command:
 ```bash
 pip install -r 'requirements.txt'
 ```
