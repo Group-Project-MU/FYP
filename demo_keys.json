@@ -1,0 +1,5 @@
+{
+    "vulners_api": "go to [Vulners](https://vulners.com/) and register a new account. Then go to *Settings*->*API keys*->*Create new API-key*",
+    "openroute_api": "go to [OpenRouter](https://openrouter.ai/) and register a new account. 
+Go to the [Get API Key](https://openrouter.ai/workspaces/default/keys) or directly click the **Get API Key** once you login. Click **+ New Key** on the right hand corner and fill in the information."
+}
