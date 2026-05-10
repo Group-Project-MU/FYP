@@ -1,0 +1,182 @@
+{
+  "21": {
+    "name": "File Transfer (FTP)",
+    "description": "Used for uploading or downloading files (insecure).",
+    "risk_level": "High (Unsafe)"
+  },
+  "22": {
+    "name": "Remote Access (SSH)",
+    "description": "The standard way for technicians to remotely manage computers via command line (high security).",
+    "risk_level": "Low (Safe)"
+  },
+  "23": {
+    "name": "Remote Terminal (Telnet)",
+    "description": "An older, unencrypted way of remote control (insecure).",
+    "risk_level": "High (Unsafe)"
+  },
+  "25": {
+    "name": "Email Sending (SMTP)",
+    "description": "Channel for sending emails to servers. Usually unencrypted.",
+    "risk_level": "High (Unsafe)"
+  },
+  "53": {
+    "name": "URL Translation (DNS)",
+    "description": "Translates website names (like google.com) to IP addresses. Essential for internet connectivity.",
+    "risk_level": "High (Unsafe)"
+  },
+  "67": {
+    "name": "Automatic Network Setup (DHCP Server)",
+    "description": "Used to automatically assign IP addresses to devices on a network.",
+    "risk_level": "High (Unsafe)"
+  },
+  "68": {
+    "name": "Automatic Network Setup (DHCP Client)",
+    "description": "The channel used to request an IP address from a network.",
+    "risk_level": "High (Unsafe)"
+  },
+  "69": {
+    "name": "Simple File Transfer (TFTP)",
+    "description": "A basic file transfer protocol, often used for backing up network device configurations. Unencrypted.",
+    "risk_level": "High (Unsafe)"
+  },
+  "80": {
+    "name": "Web Browsing (HTTP)",
+    "description": "General web browsing. Data is unencrypted; not suitable for sensitive information.",
+    "risk_level": "High (Unsafe)"
+  },
+  "110": {
+    "name": "Email Retrieval (POP3)",
+    "description": "An older protocol for downloading emails (insecure).",
+    "risk_level": "High (Unsafe)"
+  },
+  "111": {
+    "name": "Resource Sharing (RPCbind)",
+    "description": "A basic service that helps computers find shared resources.",
+    "risk_level": "Medium (Caution)"
+  },
+  "123": {
+    "name": "Time Sync (NTP)",
+    "description": "Automatically synchronizes the time between computers and servers.",
+    "risk_level": "High (Unsafe)"
+  },
+  "135": {
+    "name": "Windows Internal Communication (RPC)",
+    "description": "An internal channel used for Windows services to talk to each other.",
+    "risk_level": "Medium (Caution)"
+  },
+  "137": {
+    "name": "Network Neighborhood (NetBIOS)",
+    "description": "Used to find other computers or resources on a local network.",
+    "risk_level": "Medium (Caution)"
+  },
+  "138": {
+    "name": "Network Broadcast (NetBIOS)",
+    "description": "Used to send broadcast messages to let other computers know you are present.",
+    "risk_level": "Medium (Caution)"
+  },
+  "139": {
+    "name": "File Sharing (NetBIOS)",
+    "description": "An older protocol for sharing files or printers on a local network.",
+    "risk_level": "Medium (Caution)"
+  },
+  "143": {
+    "name": "Email Access (IMAP)",
+    "description": "A modern protocol for accessing emails, more advanced than POP3.",
+    "risk_level": "High (Unsafe)"
+  },
+  "161": {
+    "name": "Network Monitoring (SNMP)",
+    "description": "Used for monitoring the status of network devices like routers or switches.",
+    "risk_level": "High (Unsafe)"
+  },
+  "162": {
+    "name": "Alert Notification (SNMP Trap)",
+    "description": "A channel for network devices to send alerts when anomalies occur.",
+    "risk_level": "High (Unsafe)"
+  },
+  "443": {
+    "name": "Secure Web Browsing (HTTPS)",
+    "description": "Encrypted web browsing to protect your data transfer (high security).",
+    "risk_level": "Low (Safe)"
+  },
+  "445": {
+    "name": "Windows File Sharing (SMB)",
+    "description": "The core protocol for sharing folders and printers in modern Windows.",
+    "risk_level": "Medium (Caution)"
+  },
+  "500": {
+    "name": "VPN Security Authentication",
+    "description": "Exchanges encryption keys when establishing a VPN connection.",
+    "risk_level": "Low (Safe)"
+  },
+  "514": {
+    "name": "System Logs (Syslog)",
+    "description": "Sends operation logs from devices to a central server for storage.",
+    "risk_level": "High (Unsafe)"
+  },
+  "520": {
+    "name": "Routing Information (RIP)",
+    "description": "Used by routers to exchange network path information.",
+    "risk_level": "High (Unsafe)"
+  },
+  "631": {
+    "name": "Network Printing (IPP)",
+    "description": "Manages and sends print jobs to network printers.",
+    "risk_level": "Medium (Caution)"
+  },
+  "993": {
+    "name": "Secure Email Access (IMAPS)",
+    "description": "IMAP email retrieval using SSL encryption (high security).",
+    "risk_level": "Low (Safe)"
+  },
+  "995": {
+    "name": "Secure Email Retrieval (POP3S)",
+    "description": "POP3 email retrieval using SSL encryption (high security).",
+    "risk_level": "Low (Safe)"
+  },
+  "1434": {
+    "name": "Database Discovery (SQL Server)",
+    "description": "Used to locate Microsoft SQL servers on the local network.",
+    "risk_level": "Medium (Caution)"
+  },
+  "1723": {
+    "name": "Virtual Private Network (VPN)",
+    "description": "A channel for establishing VPN connections, often used to connect to corporate networks.",
+    "risk_level": "Low (Safe)"
+  },
+  "1900": {
+    "name": "Device Discovery (UPnP)",
+    "description": "Allows network devices (like smart home gadgets) to identify each other automatically.",
+    "risk_level": "Medium (Caution)"
+  },
+  "3306": {
+    "name": "Database Service (MySQL)",
+    "description": "MySQL database communication port, used by websites for data storage.",
+    "risk_level": "Medium (Caution)"
+  },
+  "3389": {
+    "name": "Remote Desktop (RDP)",
+    "description": "Windows remote desktop control, allows direct operation of another screen.",
+    "risk_level": "Low (Safe)"
+  },
+  "4500": {
+    "name": "VPN Data Channel",
+    "description": "Used for transferring encrypted data in a VPN connection.",
+    "risk_level": "Low (Safe)"
+  },
+  "5900": {
+    "name": "Desktop Sharing (VNC)",
+    "description": "A cross-platform desktop sharing system for remote screen control.",
+    "risk_level": "High (Unsafe)"
+  },
+  "8080": {
+    "name": "Web Proxy/Testing",
+    "description": "Often used as a backup web port or a proxy server.",
+    "risk_level": "High (Unsafe)"
+  },
+  "49152": {
+    "name": "Dynamic Service Port",
+    "description": "A temporary channel randomly assigned by the system to applications.",
+    "risk_level": "Medium (Caution)"
+  }
+}

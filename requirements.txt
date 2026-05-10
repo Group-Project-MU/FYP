@@ -1,0 +1,7 @@
+PyQt6
+python-nmap
+matplotlib
+vulners
+requests
+beautifulsoup4
+openai

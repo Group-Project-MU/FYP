@@ -1,0 +1,265 @@
+<style>
+   h1 {
+   font-size: 23px;
+   color: #FFFFFF;
+   margin-top: 35px;
+   margin-bottom: 10px;
+   background: #6488EA;
+   padding-left: 10px;
+   border: 1px solid #6488EA;
+   border-radius: 8px;
+   font-weight: bold;
+   }
+   h3 {
+   margin-top: 26px;
+   margin-bottom: 5px;
+   color: #1a5276;
+   font-size: 18px !important;
+   font-weight: 600;
+   border-bottom: 1px solid #d5e3f0;
+   padding-bottom: 4px;
+   }
+   p {
+   font-size: 16px;
+   margin: 5px 5px 15px 5px;
+   color: #1a1a1a;
+   text-align: left;
+   }
+   em {
+   color: #1a1a1a;
+   }
+   a {
+   color: #2471a3;
+   text-decoration: underline;
+   }
+   ul, ol {
+   background-color: #ffffff;
+   padding: 19px 29px;
+   border: 1px solid #d4e2ef;
+   border-left: 5px solid #5dade2;
+   margin: 16px 0;
+   }
+   li {
+   font-size: 16px;
+   margin: 10px 0;
+   color: #2c3e50;
+   }
+   li strong {
+   color: #1a4971;
+   }
+   code {
+   background-color: #dce6f0;
+   padding: 2px 8px;
+   font-family: 'Consolas', 'Fira Code', 'Courier New', monospace;
+   font-size: 14px;
+   color: #1b4f72;
+   border: 1px solid #c3d5e5;
+   }
+   table td {
+   font-size: 16px;
+   color: #2c3e50;
+   }
+   table th {
+   font-size: 18px;
+   color: #2c3e50;
+   }
+   .note {
+   background-color: #fdf6e3;
+   padding: 19px 26px;
+   border-left: 6px solid #e8a317;
+   border: 1px solid #f0dba8;
+   margin: 26px 0;
+   color: #5a4e1e;
+   }
+   .note strong {
+   color: #7d6608;
+   }
+   .container{
+   margin: 5px;
+   }
+   hr {
+   border: none;
+   height: 2px;
+   background-color: #bdd0e3;
+   margin: 20px 0;
+   }
+</style>
+<h1>Advanced Nmap Scanner · User Guide</h1>
+<div class="container">
+   <p>Welcome! This guide will help you understand and use the scanner effectively — whether you are a beginner exploring networks or a professional looking for quick vulnerability insights.</p>
+</div>
+<h1>1. Introduction – why use this scanner?</h1>
+<div class="container">
+   <p>This project aims to develop a user-friendly graphical interface with clear guidelines through Nmap for the users who lack experience using network scanning tools to improve cybersecurity. </p>
+   <p>Network scanning helps you discover loopholes before an attacker does. An open port with weak firewall rules can become an entry point for malicious actors. This scanner is designed especially for beginners who have limited experience with Nmap, but it also offers advanced features for power users.</p>
+   <p>The application provides a clean graphical interface (built with PyQt6) and organises scan results into easy‑to‑read tables, graphs, and vulnerability dashboards. You can perform quick checks or deep inspections without memorising Nmap command-line switches.</p>
+</div>
+<h1>2. Installation & requirements</h1>
+<div class="container">
+   <p>Before you start, make sure the following components are installed:</p>
+   <ul>
+      <li><strong>Python 3.8+</strong> – the core language.</li>
+      <li><strong>Nmap</strong> – the scanning engine. <br>
+         <span style="color:#444;">Windows users: download from <a href="https://nmap.org/download.html">https://nmap.org/download.html</a> and remember the installation path (e.g. <code>C:\Program Files (x86)\Nmap\nmap.exe</code>).</span>
+      </li>
+      <li><strong>Required Python libraries</strong> – python-nmap, PyQt6, vulners, ipaddress, matplotlib, requests, beautifulsoup4, openai, etc.</li>
+   </ul>
+   <p><strong>Automatic installation:</strong> No worry! The program includes a helper script that reads <code>requirements.txt</code> and installs all dependencies.</p>
+   <div class="note">
+      <strong>Note:</strong> The vulnerability dashboard uses the <strong>Vulners API</strong> (free tier: 100 credits/month). The <strong>default key is for demo use only</strong>, you should register your own account from
+      <a href="https://vulners.com/">https://vulners.com/</a> and obtain your own key from <a href="https://vulners.com/userinfo?tab=api-keys">https://vulners.com/userinfo?tab=api-keys</a>.
+   </div>
+</div>
+<h1>3. Getting started – first launch</h1>
+<div class="container">
+   <p>When you initially start the program, an onboarding guide will guide you how to use the program. You can also find it in setting.</p>
+   <p>The GUI is divided into <strong> 4 Main Panel </strong>:
+   <ul>
+      <li><strong>Top panel</strong> – utility bar that contains export, help and setting.</li>
+      <li><strong>Left panel</strong> – contains all commonly used functions, history hidden/show button and the home/exit buttons.</li>
+      <li><strong>Centre panel</strong> – shows your scan history.</li>
+      <li><strong>Right panel</strong> – displays the vulnerability dashboard by default: latest CVEs, top 5 vulnerabilities, Hong Kong's security alert, and a graphical distribution for the vulnerabilities.</li>
+   </ul>
+</div>
+<h1>4. Scan types – what each button does</h1>
+<div class="container">
+   <p>The quick functions(left sidebar) groups the core functions. You may refer to the table below:</p>
+   <ul>
+      <li><strong>Home</strong> – returns to the main vulnerability dashboard.</li>
+      <li><strong>Quick scan</strong> – performs host discovery, scans the most popular ports (top 1000), and detects service versions. Ideal for a fast overview.</li>
+      <li><strong>Comprehensive scan</strong> – scans all 65535 ports (TCP), detects versions, and OS detection. Aims to obtain a complete result.<br><strong style="color: #5a4e1e;">This can take several minutes.</strong></li>
+      <li><strong>Vulnerability scan</strong> – runs Nmap’s vulnerability scripts (NSE) and also queries the Vulners database for known CVEs matching the services found. Results include CVE IDs, CVSS scores, and descriptions. Instead of viewing the information from the database, we also provided an AI result to provide the solutions about the scanned possible vulnerabilities.</li>
+      <div class="note"><strong>Note:</strong> Vulnerability scan is time-consuming, we recommend scanning a single device at a time!</div>
+      <li><strong>Custom Scan</strong> – You can type any Nmap script argument (e.g. <code>http-enum</code>, <code>smb-os-discovery</code>) or select the Nmap script, and it will be appended to the scan.</li>
+      <li><strong>Exit</strong> – closes the application.</li>
+   </ul>
+</div>
+<h1>5. Input formats – what you can scan</h1>
+<div class="container">
+   <p>The program accepts three types of targets. It validates your input before starting any scan.</p>
+   <h3>Single IP address</h3>
+   <p>Example: <code>192.168.1.1</code> – standard IPv4 format. The validator checks that each octet is between 0 and 255.</p>
+   <h3>Website (domain)</h3>
+   <p>Example: <code>example.com</code> or <code>scanme.nmap.org</code>. The program resolves the domain. if it doesn’t exist, you’ll see an error message.</p>
+   <h3>IP range</h3>
+   <p>Example: <code>192.168.1.1-254</code> – scans all addresses from .1 to .254. The range part is checked to ensure it lies within 0–255.</p>
+   <div class="note">
+      <p style=" color: #5a4e1e;"><strong>Note:</strong> Invalid inputs (e.g. <code>300.1.1.1</code>, <code>abc.def</code>) are rejected immediately – no scan is started, and a clear error is shown. You <strong>SHOULD NOT ENTER</strong> the <strong>IP address end with 0 or 255</strong>.</p>
+   </div>
+</div>
+<h1>6. Advanced features & tools</h1>
+<div class="container">
+   <p>Beyond basic scanning, the application offers several productivity features:</p>
+   <ul>
+      <li>
+         <strong>History panel</strong> – every scan is saved automatically. You can:
+         <ul>
+            <li><strong>Search</strong> through past targets.</li>
+            <li><strong>Filter</strong> by date or scan type.</li>
+            <li><strong>Click</strong> any record to reload its results in the right panel (great for comparison).</li>
+         </ul>
+         <div class="note">
+            if you want to <strong>DELETE</strong> any record, you just need to remove them under the <code>/History</code> folder.
+         </div>
+      </li>
+      <li><strong>Export results</strong> – after a scan, use the “export” button to save the output as <strong>CSV</strong> or <strong>TXT</strong>. CSV files include structured data (port, service, CVE, etc.) for spreadsheet analysis. You can also the history record too!</li>
+      <li><strong>Settiing</strong> - if you have modified any setting, you need to restart the application to apply the changes.</li>
+      <li>
+         <strong>Vulnerability dashboard</strong> – loaded when the application start, you get:
+         <ul>
+            <li>Quick search from the database. (If you want to obtain a detail information, we suggest you to view on <a href="https://vulners.com/">https://vulners.com/</a> )</li>
+            <li>Latest 10 published CVEs (from Vulners) – aware from the latest global vulnerabilities</li>
+            <li>Hong Kong Security Alert – provide regional published vulnerabilities</li>
+            <li>Top 5 most severe vulnerabilities relevant to common services</li>
+            <li>Top 5 CVSS scores for specific OS types (filter by Windows, Linux, etc.)</li>
+            <li>Interactive pie chart – shows the share of low/medium/high/critical CVSS scores and the distribution</li>
+         </ul>
+      </li>
+   </ul>
+</div>
+<h1>7. Understanding scan results</h1>
+<div class="container"></div>
+<p>After a scan finishes, the right panel updates with organised information:</p>
+<ul>
+   <li><strong>Quick scan</strong> – a table lists <code>PORT</code>, <code>STATE</code>, <code>SERVICE</code>, <code>VERSION</code>, to improve the readability from the text result.</li>
+   <li>
+      <strong>Comprehensive scan</strong> - a detailed list to display all the information of the scanned hosts. <code>e.g. MAC address, Vendor, OS detection etc.</code> You can also click on the port number to view the details of that port. (Information fetched from <a href="https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml">Internet Assigned Number Authority (IANA)</a>)
+      <p></p>
+      You may also see a column named <code>risk level</code>. To identify the risk of this open port, we make use of <strong>Encryption</strong> as standard to consider the level of risk. Three main levels are:
+      <p></p>
+      <table border="1">
+         <thead>
+            <tr>
+               <th>Risk Level</th>
+               <th>Encryption Status</th>
+               <th>Explanation</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td>High (Unsafe)</td>
+               <td>Plaintext (No Encryption)</td>
+               <td>The data in transit is completely open (unencrypted), anyone on the network path can see it directly.</td>
+            </tr>
+            <tr>
+               <td>Medium (Caution)</td>
+               <td>Internal / Authority</td>
+               <td>Although there is authentication, it should not be recklessly exposed on a LAN or the Internet.</td>
+            </tr>
+            <tr>
+               <td>Low (Safe)</td>
+               <td>Encrypted</td>
+               <td>The data in transit is encrypted, even if someone intercepts it, they cannot read it.</td>
+            </tr>
+         </tbody>
+      </table>
+      <p></p>
+   </li>
+   <li>
+      <strong>Vulnerability scan</strong> – two main tabs:
+      <p></p>
+      Vulnerability result:
+      <ul>
+         <li>a list of potential vulnerabilities found by NSE</li>
+         <li>a dedicated CVE table with CVSS scores, exploitability metrics, and short descriptions. Colour codes help you identify critical issues (CVSS > 9.0).</li>
+      </ul>
+      <p></p>
+      Vulnerability solution:
+      <ul>
+         <li>a quick solution and action plan is provide by an AI.</li>
+         <li>result ordered by <code>Issue, Risk, Fix Steps, Prevention, Action Plan</code></li>
+         <div class="note">
+            <strong>Note:</strong> The AI result is for reference only, professional advice should be seek for an auditor.
+         </div>
+      </ul>
+   <li><strong>Quick Summary</strong> – for the result of host discovery, it shows the total <code>online hosts, offline hosts, open ports and services</code>.</li>
+</ul>
+<div class="note"><strong>Note:</strong> All results remain in the history, so you can revisit them even after closing the program.</div>
+</div>
+<h1>8. Troubleshooting & logs</h1>
+<div class="container">
+   <p>If something unexpected happens, the program records error details in a log file (<code>scanner_log.log</code>) located in the application folder. Check it for hints – common issues include:</p>
+   <ul>
+      <li><strong>Nmap not found</strong> – you haven’t set the correct path in Windows, or Nmap is not installed. Go to <em>Config file → Set Nmap path</em>. You may also restart the application to reselect the path.</li>
+      <li><strong>Vulners API limit reached</strong> – the free monthly credits may be exhausted. The dashboard will not show anything except the error message. You can wait until next month or provide your own API key in the configuration file.</li>
+      <li><strong>Scan freezes on comprehensive scan</strong> – some networks or firewalls may cause delays, the progress bar reassures that the scan is still running. If it hangs indefinitely, restart the app.</li>
+      <li><strong>Invalid input not caught?</strong> – make sure you use dots and hyphens correctly. The validator follows strict IP rules.</li>
+   </ul>
+</div>
+<h1>9. Frequently asked questions (FAQ)</h1>
+<div class="container">
+<h3>Do I need to know Nmap commands?</h3>
+<p>No. The quick, comprehensive, and vulnerability scans work out‑of‑the‑box. Custom scan is optional.</p>
+<h3>If the scanner scanned me open several ports, should I turn them off?</h3>
+<p>Not necessarily. Not all open ports are dangerous, but every open port represents a potential attack surface.</p>
+<h3>If a port shows "low" risk level, does it really mean 100% safe?</h3>
+<p>Not necessarily. Encryption is similar to putting your letter in a sealed envelope. It ensures the content is not accessed by anyone other than the recipient, but it may contain a harmful request. A hacker may still send dangerous instructions to your server even with an encrypted connection. It just safeguards the delivery process, the server's/host's security settings and software updates must be done.</p>
+<h3>How often is the CVE database updated?</h3>
+<p>The dashboard queries the Vulners API live, so you always see the latest information (subject to API credits).</p>
+<h3>Can I scan my whole local network?</h3>
+<p>Yes – use the IP range format, e.g. <code>192.168.0.1-254</code>. Be aware that a full port scan on many hosts will take time.</p>
+<h3>Where can I find the exported CSV files?</h3>
+<p>A file dialog asks you where to save.</p>
+<hr>
+<p style="text-align:center; color:#4a6a85;">— For more details, refer to the README file. —</p>
+<div>
